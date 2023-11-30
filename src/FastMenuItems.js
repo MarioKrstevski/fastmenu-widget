@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+// import toast, { Toaster } from 'react-hot-toast';
 function groupBy(array, key) {
   return array.reduce((acc, item) => {
     const keyValue = item[key];
@@ -167,6 +167,7 @@ function FastMenuItems({ subdomain }) {
   //   const gs = useSelector((store) => store.globalSettings);
   //   const { menu } = useSelector((store) => store.menu);
   const [isLoading, setIsLoading] = useState(false);
+  const [widgetError, setWidgetError] = useState(null);
   const [currentFilter, setCurrentFilter] = useState("All");
 
   const [state, setState] = useState({
@@ -201,6 +202,11 @@ function FastMenuItems({ subdomain }) {
         // generateFilters(null, filters);
         // generateItems(null);
       })
+      .catch((err) => {
+        console.log("error from loading widget", err);
+        setWidgetError(err);
+        window.alert(err);
+      })
       .finally(() => {
         setIsLoading(false);
       });
@@ -211,6 +217,9 @@ function FastMenuItems({ subdomain }) {
   }
   if (isLoading) {
     return <div>Loading ... ... </div>;
+  }
+  if (widgetError) {
+    return <div> widget error </div>;
   }
   if (!state.gs || !state.menu) {
     return null;
