@@ -163,7 +163,7 @@ function Pill({ label, active, updateFilter }) {
   );
 }
 
-function FastMenuItems(props) {
+function FastMenuItems({ subdomain }) {
   //   const gs = useSelector((store) => store.globalSettings);
   //   const { menu } = useSelector((store) => store.menu);
   const [isLoading, setIsLoading] = useState(false);
@@ -173,8 +173,6 @@ function FastMenuItems(props) {
     menu: null,
     gs: null,
   });
-
-  const subdomain = "agorademo";
 
   const menu = state.menu;
   const gs = state.gs;

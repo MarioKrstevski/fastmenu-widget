@@ -13,7 +13,11 @@ import FastMenuItems from "./FastMenuItems";
 //   </React.StrictMode>
 // );
 
-const FastMenuItemsWidget = r2wc(FastMenuItems);
+const FastMenuItemsWidget = r2wc(FastMenuItems, {
+  props: {
+    subdomain: "string",
+  },
+});
 
 customElements.define("fastmenu-widget", FastMenuItemsWidget);
 
