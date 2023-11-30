@@ -180,21 +180,26 @@ function FastMenuItems({ subdomain }) {
   const gs = state.gs;
   //get items
   useEffect(() => {
-    console.log(
-      "Asking for be menu from " + "https://api-omjz.onrender.com/"
-    );
-    window.alert(
-      "Asking for be menu from " + "https://api-omjz.onrender.com/"
-    );
+    // console.log(
+    //   "Asking for be menu from " + "https://api-omjz.onrender.com/"
+    // );
+    // window.alert(
+    //   "Asking for be menu from " + "https://api-omjz.onrender.com/"
+    // );
     setIsLoading(true);
     fetch("https://api-omjz.onrender.com/menu?subdomain=" + subdomain)
       .then(function (response) {
+        // console.log("response: ", response);
+        // window.alert(JSON.stringify(response));
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         return response.json();
       })
       .then(function (data) {
+        // console.log(" loading widget data", data);
+        // window.alert(" loading widget data " + JSON.stringify(data));
+
         setState({
           menu: data.menuItems,
           gs: data.globalSettings,
@@ -210,13 +215,13 @@ function FastMenuItems({ subdomain }) {
         // generateItems(null);
       })
       .catch((err) => {
-        console.log("error from loading widget", err);
+        // console.log("error from loading widget", err);
         setWidgetError(err);
-        window.alert(err);
+        // window.alert(err);
       })
       .finally(() => {
-        window.alert("Widget version " + widgetVersion);
-        console.log("Widget version " + widgetVersion);
+        // window.alert("Widget version " + widgetVersion);
+        // console.log("Widget version " + widgetVersion);
         setIsLoading(false);
       });
   }, []);
