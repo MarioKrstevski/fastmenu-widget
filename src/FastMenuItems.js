@@ -180,6 +180,12 @@ function FastMenuItems({ subdomain }) {
   const gs = state.gs;
   //get items
   useEffect(() => {
+    console.log(
+      "Asking for be menu from " + "https://api-omjz.onrender.com/"
+    );
+    window.alert(
+      "Asking for be menu from " + "https://api-omjz.onrender.com/"
+    );
     setIsLoading(true);
     fetch("https://api-omjz.onrender.com/menu?subdomain=" + subdomain)
       .then(function (response) {
