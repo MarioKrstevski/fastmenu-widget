@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+const widgetVersion = "1";
 // import toast, { Toaster } from 'react-hot-toast';
 function groupBy(array, key) {
   return array.reduce((acc, item) => {
@@ -208,6 +209,8 @@ function FastMenuItems({ subdomain }) {
         window.alert(err);
       })
       .finally(() => {
+        window.alert("Widget version " + widgetVersion);
+        console.log("Widget version " + widgetVersion);
         setIsLoading(false);
       });
   }, []);
