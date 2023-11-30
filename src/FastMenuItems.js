@@ -181,7 +181,7 @@ function FastMenuItems({ subdomain }) {
   //get items
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:8000/menu?subdomain=" + subdomain)
+    fetch("https://api-omjz.onrender.com/menu?subdomain=" + subdomain)
       .then(function (response) {
         if (!response.ok) {
           throw new Error("Network response was not ok");
