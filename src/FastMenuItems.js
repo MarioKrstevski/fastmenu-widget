@@ -275,11 +275,11 @@ function FastMenuItems({ subdomain }) {
 
           <div className="items  flex flex-wrap">
             {currentFilter === "All"
-              ? menu.map((item, idx) => (
-                  <Card key={idx} item={item} gs={gs} />
+              ? menu.map((item) => (
+                  <Card key={item._uid} item={item} gs={gs} />
                 ))
-              : groupedByFilter[currentFilter].map((item, idx) => (
-                  <Card key={idx} item={item} gs={gs} />
+              : groupedByFilter[currentFilter].map((item) => (
+                  <Card key={item._uid} item={item} gs={gs} />
                 ))}
           </div>
         </div>
