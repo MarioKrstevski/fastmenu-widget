@@ -3,9 +3,15 @@ const widgetVersion = "1";
 // import toast, { Toaster } from 'react-hot-toast';
 function groupBy(array, key) {
   return array.reduce((acc, item) => {
-    const keyValue = item[key];
-    acc[keyValue] = acc[keyValue] || [];
-    acc[keyValue].push(item);
+    const keyValues = item[key]
+      .split(",")
+      .map((value) => value.trim());
+
+    keyValues.forEach((value) => {
+      acc[value] = acc[value] || [];
+      acc[value].push(item);
+    });
+
     return acc;
   }, {});
 }
